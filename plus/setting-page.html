@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style>
+		.setting-page-container {
+    		width: 100%;
+    		padding: 20px 20px 0 20px;
+    		background: rgba(0,0,0,.5);
+    	}
+    	.setting-body-container {
+    		height: 90%;
+    		width: 100%;
+    		background: #fff;
+    		border-radius: 10px;
+    	}
+    	.title {
+    		color: #212121;
+    		font-size: 24px;
+    		padding: 25px 25px;
+    		font-weight: 100;
+    		border-bottom: 1px solid #ebebeb;
+    	}
+    	.content-container {
+    		width: 100%;
+    		padding-left: 25px;
+    	}
+    	.change-device-container {
+    		width: 100%;
+    		border-bottom: 1px solid #ebebeb;
+    	}
+    	.change-device-title {
+    		font-size: 13px;
+    		line-height: 13px;
+    		color: #999;
+    		padding-top: 20px;
+    	}
+    	input::-webkit-input-placeholder{ /*WebKit browsers*/
+    		font-size: 16px;
+			color: #212121;
+			}
+		input::-moz-input-placeholder{ /*Mozilla Firefox*/
+			font-size: 16px;
+			color: #212121;
+		}
+		input::-ms-input-placeholder{ /*Internet Explorer*/ 
+			font-size: 16px;
+			color: #212121;
+		}
+		.device-name {
+			font-size: 16px;
+			color: #212121;
+		}
+		input[type=text] {
+			padding: 0;
+			margin-bottom: 0;
+			border: none;
+		}
+		.choose-room-container {
+			width: 100%;
+			height: 55px;
+			border-bottom: 1px solid #ebebeb;
+		}
+		.choose-room-container:active {
+			background: #ccc;
+		}
+		.choose-room-container:after {
+			display: table;
+			content: '';
+			height: 0px;
+			clear: both;
+		}
+		.choose-title {
+			width: 50%;
+			height: 55px;
+			font-size: 16px;
+			line-height: 55px;
+			float: left;
+		}
+		.room-name-container {
+			width: 50%;
+			height: 55px;
+			padding-right: 25px;
+			float: left;
+		}
+		.room-name {
+			width: 100%;
+			height: inherit;
+			font-size: 13px;
+			line-height: 55px;
+			color: #999;
+			background: url(../images/icons/icon_详情@3x.png) no-repeat;
+			background-position: right center;
+			background-size: 10px;
+			padding-right: 25px;
+			text-align: right;
+		}
+		footer {
+    		height: 10%;
+    		width: 100%;
+    		padding-left: 25px;
+    		box-sizing: border-box;
+    	}
+    	.back-to-index {
+    		width: 20px;
+    		display: block;
+    	}
+		</style>
+	</head>
+
+	<body>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	<div id="setting_page_container" class="setting-page-container">
+		<div id="setting_body_container" class="setting-body-container">
+			<div class="title">设置</div>
+			<section class="content-container">
+				<div class="change-device-container">
+					<div class="change-device-title">修改设备名称</div>
+					<input type="text" class="device-name" id="device_name" placeholder="请输入设备名称" value="Mini网关"/>
+				</div>
+				<div id="choose_room_container" class="choose-room-container">
+					<div class="choose-title">选择所属房间</div>
+					<div class="room-name-container">
+						<div id="room_name" class="room-name">工作室</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<footer id="setting_footer">
+			<img src="../images/icons/icon_返回@3x.png" id="back_to_index" class="back-to-index"/>
+		</footer>
+	</div>
+	</body>
+
+</html>
+<script type="text/javascript" src="../js/jquery-1.11.1.js" ></script>
+<script>
+//	获取屏幕高度 赋值给page_container
+	var setting_h = $(window).height();
+	var setting_page_container = $('#setting_page_container');
+	setting_page_container.css("height",setting_h+'px');
+	
+//	footer高度 确定close按钮位置
+	var setting_footer_h = $('#setting_footer').height();
+	var back_margin_top = (setting_footer_h-20)/2;
+	$('#setting_footer').css('padding-top',back_margin_top);
+
+//  device-name失去焦点 value为空是默认为Mini网关
+	$("#device_name").blur(function(){
+		if($("device_name").attr('value') == null || $("device_name").attr('value') == undefined){
+			$("device_name").attr('value','Mini网关');
+		}
+	});
+//	返回上级页面
+	var back_to_index = $('#back_to_index');
+	back_to_index.on('tap',function() {
+				mui.openWindow({
+					url: "../index.html",
+					id: "index",
+					styles: {
+						popGesture:"close"
+					},
+					show:{
+						autoShow: true,
+					},
+					waiting: {
+						autoShow: false						
+					}
+				});
+			});
+//	选择所属房间跳转
+	var choose_room_container = $('#choose_room_container');
+	choose_room_container.on('tap',function() {
+				mui.openWindow({
+					url: "room.html",
+					id: "room",
+					styles: {
+						popGesture:"close"
+					},
+					show:{
+						autoShow: true,
+					},
+					waiting: {
+						autoShow: false						
+					}
+				});
+			});
+</script>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.11.1.js" ></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+    <style>
+    	.page-container {
+    		width: 100%;
+    		padding: 20px 20px 0 20px;
+    		background: rgba(0,0,0,.5);
+    	}
+    	.body-container {
+    		height: 90%;
+    		width: 100%;
+    	}
+    	.top-container {
+    		width: 100%;
+    		height: 48%;
+    		background: 
+    		-webkit-linear-gradient(#15212c 0%, #1B283D 100%);
+    		background: 
+    		-moz-linear-gradient(#15212c 0%, #1B283D 100%);
+    		background: 
+    		-o-linear-gradient(#15212c 0%, #1B283D 100%);
+    		box-sizing: border-box;
+    		border-radius: 10px 10px 0 0 ;
+    	}
+    	.title {
+    		color: #fff;
+    		font-size: 24px;
+    		padding: 25px 25px;
+    		font-weight: 100;
+    	}
+    	.net-image {
+    		display: block;
+    		width: 45%;
+    		margin: 10px auto 0;
+    	}
+    	.bottom-container {
+    		width: 100%;
+    		height: 52%;
+			background: #fff;    		
+			box-sizing: border-box;
+			border-radius: 0 0 10px 10px;
+    	}
+    	.light-pattern {
+    		/*padding: 25px 0 20px 20px;*/
+    	}
+    	.bottom-title {
+    		font-size: 16px;
+    		color: #333;
+    		line-height: 16px;
+    		padding: 25px 0 20px 20px;
+    	}
+    	.light-pattern img {
+    		width: 30px;
+    		display: block;
+    	}
+    	
+    	.light-img-container {
+    		padding: 0 5%;
+    	}
+    	.light-img-container:after {
+    		display: table;
+    		height: 0;
+    		content: '';
+    		clear: both;
+    	}
+    	.light-item-container {
+    		float: left;
+    		text-align: center;
+    		font-size: 14px;
+    	}
+    	
+    	
+    	.sound-pattern {
+    		
+    	}
+    	.sound-pattern img {
+    		width: 30px;
+    		display: block;
+    	}
+    	.sound-img-container {
+    		padding: 0 5%;
+    	}
+    	.sound-img-container:after {
+    		display: table;
+    		height: 0;
+    		content: '';
+    		clear: both;
+    	}
+    	.sound-item-container {
+    		float: left;
+    		text-align: center;
+    		font-size: 14px;
+    	}
+    	.cut {
+    		width: 100%;
+    		height: 1px;
+    		background: #ebebeb;
+    		margin-top: 15px;
+    	}
+    	.setting-container {
+    		position: relative;
+    	}
+    	.setting-btn {
+    		position: absolute;
+    		width: 20px;
+    		display: block;
+    		right: 5%;
+    	}
+    	
+    	footer {
+    		height: 10%;
+    		width: 100%;
+    		box-sizing: border-box;
+    	}
+    	.close {
+    		width: 20px;
+    		display: block;
+    		margin: 0 auto;
+    		box-sizing: border-box;
+    	}
+    </style>
+</head>
+
+<body>
+	<div id="page_container" class="page-container">
+		<div id="body_container" class="body-container">
+			<div class="top-container">
+				<div id="title" class="title">
+					Mini网关
+				</div>
+				<div class="img-container">
+					<img src="images/cutImage/mini网关-720-2在线.png" class="net-image"/>
+				</div>
+			</div>
+			<div id="bottom_container" class="bottom-container">
+				<!--灯光模式-->
+				<section id="light_pattern" class="light-pattern">
+					<!--标题-->
+					<div class="bottom-title">灯光模式</div>
+					<div id="light_img_container" class="light-img-container">
+						<!--告警-->
+						<div id="light_gaojing_container" class="light-item-container">
+							<img id="js_gaojing" class="gaojing" src="images/icons/icon_告警_normal@3x.png"/>
+							<div>告警</div>
+						</div>
+						<!--夜间-->
+						<div id="yejain_container" class="light-item-container">
+							<img id="js_yejian" class="yejian" src="images/icons/icon_夜间_normal@3x.png"/>
+							<div>夜间</div>
+						</div>
+						<!--放松-->
+						<div id="fangsong_container" class="light-item-container">
+							<img id="js_fangsong" class="fangsong" src="images/icons/icon_放松_normal@3x.png"/>
+							<div>放松</div>
+						</div>
+						<!--关闭-->
+						<div id="guanbi_container" class="light-item-container">
+							<img id="js_guanbi" class="guanbi" src="images/icons/icon_关闭_normal@3x.png"/>
+							<div>关闭</div>
+						</div>
+					</div>
+				</section>
+				
+				<!--声音模式-->
+				<section id="sound_pattern" class="sound-pattern">
+					<!--标题-->
+					<div class="bottom-title">声音模式</div>
+					<div class="sound-img-container">
+						<!--告警-->
+						<div id="sound_gaojing_container" class="sound-item-container">
+							<img id="js_gaojing" class="gaojing" src="images/icons/icon_告警_normal@3x.png"/>
+							<div>告警</div>
+						</div>
+						<!--门铃-->
+						<div id="menling_container" class="sound-item-container">
+							<img id="js_menling" class="menling" src="images/icons/icon_门铃_normal@3x.png"/>
+							<div>门铃</div>
+						</div>
+						<!--闹钟-->
+						<div id="naozhong_container" class="sound-item-container">
+							<img id="js_naozhong" class="naozhong" src="images/icons/icon_闹钟_normal@3x.png"/>
+							<div>闹钟</div>
+						</div>
+						<!--提醒-->
+						<div id="tixing_container" class="sound-item-container">
+							<img id="js_tixing" class="tixing" src="images/icons/icon_提醒_normal@3x.png"/>
+							<div>提醒</div>
+						</div>
+					</div>
+				</section>
+				<!--切割线-->
+				<section class="cut"></section>
+				<!--设置-->
+				<section id="setting_container" class="setting-container">
+					<img src="images/icons/icon_设置@3x.png" id="setting_btn" class="setting-btn"/>
+				</section>
+			</div>
+		</div>
+		
+		<footer>
+			<img src="images/icons/icon_close@3x.png" id="close" class="close"/>		
+		</footer>
+	</div>
+</body>
+</html>
+<script>
+	
+//	获取屏幕高度 赋值给page_container
+	var h = $(window).height();
+	var page_container = $('#page_container');
+	page_container.css("height",h+'px');
+	
+//	获取light_img_container宽度、计算间距
+	var w = $('#light_img_container').width();
+	var w1 = (w-120)/3;
+	
+	
+//	灯光模式各个icon设置margin-left
+	var light_pattern = $('#light_pattern');
+	var light_gaojing_container = $('#light_gaojing_container');
+	var yejain_container = $('#yejain_container');
+	var fangsong_container = $('#fangsong_container');
+	var guanbi_container = $('#guanbi_container');
+	yejain_container.css('margin-left',w1);
+	fangsong_container.css('margin-left',w1);
+	guanbi_container.css('margin-left',w1);
+	
+//	声音模式各个icon设置margin-left
+	var sound_pattern = $('#sound_pattern');
+	var sound_gaojing_container = $('#sound_gaojing_container');
+	var menling_container = $('#menling_container');
+	var naozhong_container = $('#naozhong_container');
+	var tixing_container = $('#tixing_container');
+	menling_container.css('margin-left',w1);
+	naozhong_container.css('margin-left',w1);
+	tixing_container.css('margin-left',w1);
+	
+//	设置按钮--高度
+	var bottom_h = $('#bottom_container').height();
+	var light_h = light_pattern.height();//	灯光模式高度
+	var sound_h = sound_pattern.height();// 声音模式高度
+	
+	var setting_h = bottom_h - light_h - sound_h - 16;
+	var setting_container = $('#setting_container');
+	setting_container.height(setting_h);
+//	设置按钮垂直居中
+	var setting_top_h = (setting_h-20)/2;
+	$('#setting_btn').css('top',setting_top_h);
+	
+//	footer高度 确定close按钮位置
+	var footer_h = $('footer').height();
+	var close_margin_top = (footer_h-20)/2;
+	$('footer').css('padding-top',close_margin_top);
+	
+//	跳转至设置页面
+	var setting_btn = $('#setting_btn');
+	setting_btn.on('tap',function() {
+		mui.openWindow({
+			url: "plus/setting-page.html",
+			id: "setting-page",
+			styles: {
+				popGesture:"close"
+			},
+			show:{
+				autoShow: true,
+			},
+			waiting: {
+				autoShow: false						
+			}
+		});
+	});
+</script>

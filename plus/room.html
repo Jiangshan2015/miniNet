@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style>
+		.room-page-container {
+    		width: 100%;
+    		padding: 20px 20px 0 20px;
+    		background: rgba(0,0,0,.5);
+    	}
+    	.room-body-container {
+    		height: 90%;
+    		width: 100%;
+    		background: #fff;
+    		border-radius: 10px;
+    	}
+    	.title {
+    		color: #212121;
+    		font-size: 24px;
+    		padding: 25px 25px;
+    		font-weight: 100;
+    		border-bottom: 1px solid #ebebeb;
+    	}
+    	.content-container {
+    		width: 100%;
+    		padding-left: 25px;
+    	}
+    	.room-container {
+    		width: 100%;
+    		height: 55px;
+    		border-bottom: 1px solid #ebebeb;
+    	}
+    	.room-container:after {
+    		display: table;
+    		height: 0;
+    		content: '';
+    		clear: both;
+    	}
+    	.room {
+    		width: 50%;
+    		height: inherit;
+    		float: left;
+    		padding-left: 10px;
+    		line-height: 55px;
+    	}
+    	.confirm-icon-box {
+    		width: 50%;
+    		height: inherit;
+    		float: left;
+    		position: relative;
+    	}
+    	.complete-icon {
+    		display: block;
+    		width: 20px;
+    		position: absolute;
+    		right: 20px;
+    		top: 17px;
+    	}
+    	footer {
+    		height: 10%;
+    		width: 100%;
+    		padding-left: 25px;
+    		box-sizing: border-box;
+    	}
+    	.back-to-setting {
+    		width: 20px;
+    		display: block;
+    	}
+		</style>
+	</head>
+
+	<body>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<div id="room_page_container" class="room-page-container">
+			<div id="room_body_container" class="room-body-container">
+				<div class="title">所属房间</div>
+				<div class="content-container">
+					<div id="room_container" class="room-container">
+						<div id="room" class="room">工作室</div>
+						<div id="confirm_iocn_box" class="confirm-icon-box">
+							<img src="../images/icons/形状13@3x.png" class="complete-icon"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<footer id="room_footer">
+				<img src="../images/icons/icon_返回@3x.png" id="back_to_setting" class="back-to-setting"/>
+			</footer>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript" src="../js/jquery-1.11.1.js" ></script>
+<script>
+	//	获取屏幕高度 赋值给page_container
+	var room_h = $(window).height();
+	var room_page_container = $('#room_page_container');
+	room_page_container.css("height",room_h+'px');
+	
+	//	footer高度 确定close按钮位置
+	var room_footer_h = $('#room_footer').height();
+	var back_margin_top = (room_footer_h-20)/2;
+	$('#room_footer').css('padding-top',back_margin_top);
+	
+	//	返回上级页面
+	var back_to_setting = $('#back_to_setting');
+	back_to_setting.on('tap',function() {
+				mui.openWindow({
+					url: "setting-page.html",
+					id: "setting",
+					styles: {
+						popGesture:"close"
+					},
+					show:{
+						autoShow: true,
+					},
+					waiting: {
+						autoShow: false						
+					}
+				});
+			});
+</script>
