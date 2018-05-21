@@ -11,13 +11,8 @@
       	mui.init();
     </script>
     <style>
-    	.page-container {
-    		width: 100%;
-    		padding: 20px 20px 0 20px;
-    		background: rgba(0,0,0,.5);
-    	}
     	.body-container {
-    		height: 90%;
+    		height: 100%;
     		width: 100%;
     	}
     	.top-container {
@@ -30,7 +25,7 @@
     		background: 
     		-o-linear-gradient(#15212c 0%, #1B283D 100%);
     		box-sizing: border-box;
-    		border-radius: 10px 10px 0 0 ;
+    		/*border-radius: 10px 10px 0 0 ;*/
     	}
     	.title {
     		color: #fff;
@@ -48,7 +43,6 @@
     		height: 52%;
 			background: #fff;    		
 			box-sizing: border-box;
-			border-radius: 0 0 10px 10px;
     	}
     	.light-pattern {
     		/*padding: 25px 0 20px 20px;*/
@@ -132,7 +126,6 @@
 </head>
 
 <body>
-	<div id="page_container" class="page-container">
 		<div id="body_container" class="body-container">
 			<div class="top-container">
 				<div id="title" class="title">
@@ -207,18 +200,17 @@
 			</div>
 		</div>
 		
-		<footer>
+		<!--<footer>
 			<img src="images/icons/icon_close@3x.png" id="close" class="close"/>		
-		</footer>
-	</div>
+		</footer>-->
 </body>
 </html>
 <script>
 	
 //	获取屏幕高度 赋值给page_container
 	var h = $(window).height();
-	var page_container = $('#page_container');
-	page_container.css("height",h+'px');
+	var body_container = $('#body_container');
+	body_container.css("height",h+'px');
 	
 //	获取light_img_container宽度、计算间距
 	var w = $('#light_img_container').width();
@@ -258,9 +250,9 @@
 	$('#setting_btn').css('top',setting_top_h);
 	
 //	footer高度 确定close按钮位置
-	var footer_h = $('footer').height();
-	var close_margin_top = (footer_h-20)/2;
-	$('footer').css('padding-top',close_margin_top);
+//	var footer_h = $('footer').height();
+//	var close_margin_top = (footer_h-20)/2;
+//	$('footer').css('padding-top',close_margin_top);
 	
 //	跳转至设置页面
 	var setting_btn = $('#setting_btn');
